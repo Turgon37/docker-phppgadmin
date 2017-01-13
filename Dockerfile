@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:latest
 MAINTAINER Pierre GINDRAUD <pgindraud@gmail.com>
 
 ENV PHPPGADMIN_VERSION=5.1 \
@@ -8,8 +8,7 @@ ENV PHPPGADMIN_VERSION=5.1 \
     POSTGRES_DEFAULTDB=template1
 
 # Install dependencies
-RUN apk --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ add \
-    supervisor \
+RUN apk --no-cache add \
     curl \
     nginx \
     php5 \
@@ -19,6 +18,7 @@ RUN apk --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ 
     php5-mcrypt \
     php5-pgsql \
     postgresql \
+    supervisor \
     tar && \
 
 # Install phppadmin sources
