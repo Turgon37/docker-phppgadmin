@@ -34,11 +34,9 @@ RUN apk --no-cache add \
 # Remove dependencies
     apk --no-cache del curl tar
 
-
 # Add some configurations files
+COPY root/ /
 COPY config.inc.php /var/www/conf/
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY supervisord.conf /etc/supervisord.conf
 
 # Apply PHP FPM configuration
 RUN sed -i -e "s|;clear_env\s*=\s*no|clear_env = no|g" /etc/php5/php-fpm.conf && \
