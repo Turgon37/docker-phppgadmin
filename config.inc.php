@@ -90,7 +90,7 @@
 	// will be denied. Only set this false once you have read the FAQ and
 	// understand how to change PostgreSQL's pg_hba.conf to enable
 	// passworded local connections.
-	$conf['extra_login_security'] = true;
+	$conf['extra_login_security'] = getenv('POSTGRES_LOGIN_SECURITY');
 
 	// Only show owned databases?
 	// Note: This will simply hide other databases in the list - this does

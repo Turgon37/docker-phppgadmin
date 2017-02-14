@@ -5,7 +5,8 @@ ENV PHPPGADMIN_VERSION=5.1 \
     POSTGRES_NAME=PostgreSQL \
     POSTGRES_HOST=localhost \
     POSTGRES_PORT=5432 \
-    POSTGRES_DEFAULTDB=template1
+    POSTGRES_DEFAULTDB=template1 \
+    POSTGRES_LOGIN_SECURITY=true
 
 # Install dependencies
 RUN apk --no-cache add \
