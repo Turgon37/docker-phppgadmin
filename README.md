@@ -15,12 +15,22 @@ This images contains an instance of phppgadmin web application served by nginx o
 
  * This image takes theses environnements variables as parameters
 
-| Environment        | Usage           |
-| -------------      | --------------- |
-| POSTGRES_HOST      | The hostname of the PostGreSQL database server                 |
-| POSTGRES_PORT      | The port on which join the postgressql server (default to 5432)|
-| POSTGRES_NAME      | The name of the connection profil in phpPgAdmin profile        |
-| POSTGRES_DEFAULTDB | The name of default database to show                           |
+| Environment                 | Usage                                                           |
+| --------------------------- | ----------------------------------------------------------------|
+| POSTGRES_HOST               | The hostname of the PostGreSQL database server                  |
+| POSTGRES_PORT               | The port on which join the postgressql server (default to 5432) |
+| POSTGRES_NAME               | The name of the connection profil in phpPgAdmin profile         |
+| POSTGRES_DEFAULTDB          | The name of default database to show                            |
+| PHPPGADMIN_LOGIN_SECURITY   | If true enable restrictions on login and empty passwords        |
+| PHPPGADMIN_OWNED_ONLY       | If true, filter databases owned by the logged user              |
+| PHPPGADMIN_SHOW_COMMENTS    | If true, show comments fields                                   |
+| PHPPGADMIN_SHOW_ADVANCED    | If true, display advanced objects like types, aggregations      |
+| PHPPGADMIN_SHOW_SYSTEM      | If true, display systems objects                                |
+| PHPPGADMIN_SHOW_OIDS        | If true, show objects OIDs                                      |
+| PHPPGADMIN_USE_XHTML_STRICT | If true, send XHTML strict headers                              |
+| PHPPGADMIN_THEME            | Set here the name of the theme to use                           |
+| PHPPGADMIN_PLUGINS          | Set here the comma separated list of plugins name to enable     |
+
 
 ## Installation
 
