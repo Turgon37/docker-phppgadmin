@@ -154,7 +154,12 @@
 	 *     'Slony'
 	 *   );
 	 */
-	$conf['plugins'] = array();
+    $plugins_names = getenv('PHPPGADMIN_PLUGINS');
+    if ( strlen($plugins_names) === 0 ) {
+        $conf['plugins'] = array();
+    } else {
+        $conf['plugins'] = explode(',', $plugins_names);
+    }
 
 	/*****************************************
 	 * Don't modify anything below this line *

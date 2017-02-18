@@ -13,7 +13,8 @@ ENV PHPPGADMIN_VERSION=5.1 \
     PHPPGADMIN_SHOW_SYSTEM=false \
     PHPPGADMIN_SHOW_OIDS=false \
     PHPPGADMIN_USE_XHTML_STRICT=false \
-    PHPPGADMIN_THEME=default
+    PHPPGADMIN_THEME=default \
+    PHPPGADMIN_PLUGINS=""
 
 # Install dependencies
 RUN apk --no-cache add \
