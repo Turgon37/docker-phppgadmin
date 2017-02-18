@@ -28,7 +28,7 @@
 
 	// Change the default database only if you cannot connect to template1.
 	// For a PostgreSQL 8.1+ server, you can set this to 'postgres'.
-	$conf['servers'][0]['defaultdb'] = boolval(getenv('POSTGRES_DEFAULTDB'));
+	$conf['servers'][0]['defaultdb'] = getenv('POSTGRES_DEFAULTDB');
 
 	// Specify the path to the database dump utilities for this server.
 	// You can set these to '' if no dumper is available.
@@ -90,23 +90,23 @@
 	// will be denied. Only set this false once you have read the FAQ and
 	// understand how to change PostgreSQL's pg_hba.conf to enable
 	// passworded local connections.
-	$conf['extra_login_security'] = getenv('POSTGRES_LOGIN_SECURITY');
+	$conf['extra_login_security'] = boolval(getenv('POSTGRES_LOGIN_SECURITY'));
 
 	// Only show owned databases?
 	// Note: This will simply hide other databases in the list - this does
 	// not in any way prevent your users from seeing other database by
 	// other means. (e.g. Run 'SELECT * FROM pg_database' in the SQL area.)
-	$conf['owned_only'] = false;
+	$conf['owned_only'] = boolval(getenv('POSTGRES_OWNED_ONLY'));
 
 	// Display comments on objects?  Comments are a good way of documenting
 	// a database, but they do take up space in the interface.
-	$conf['show_comments'] = true;
+	$conf['show_comments'] = boolval(getenv('POSTGRES_SHOW_COMMENTS'));
 
 	// Display "advanced" objects? Setting this to true will show 
 	// aggregates, types, operators, operator classes, conversions, 
 	// languages and casts in phpPgAdmin. These objects are rarely 
 	// administered and can clutter the interface.
-	$conf['show_advanced'] = false;
+	$conf['show_advanced'] = boolval(getenv('POSTGRES_SHOW_ADVANCED'));
 
 	// Display "system" objects?
 	$conf['show_system'] = false;
@@ -130,7 +130,7 @@
 	$conf['max_chars'] = 50;
 
 	// Send XHTML strict headers?
-	$conf['use_xhtml_strict'] = false;
+	$conf['use_xhtml_strict'] = boolval(getenv('POSTGRES_USE_XHTML_STRICT'));
 
 	// Base URL for PostgreSQL documentation.
 	// '%s', if present, will be replaced with the PostgreSQL version
