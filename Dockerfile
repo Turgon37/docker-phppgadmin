@@ -58,5 +58,6 @@ RUN sed -i -e "s|;clear_env\s*=\s*no|clear_env = no|g" /etc/php5/php-fpm.conf &&
     chown -R nobody /var/www
 
 EXPOSE 80
+WORKDIR /var/www
 
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
