@@ -23,11 +23,11 @@
         // use 'localhost' for TCP/IP connection on this computer
         $conf['servers'][$i]['host'] = $hosts[$i];
 
-        if (isset($names[$i])) {
+        if ( isset($names[$i]) ) {
             // Display name for the server on the login screen
             $conf['servers'][$i]['desc'] = $names[$i];
         }
-        if (isset($ports[$i])) {
+        if ( isset($ports[$i]) && !empty($ports[$i]) ) {
             // Database port on server (5432 is the PostgreSQL default)
             $conf['servers'][$i]['port'] = $ports[$i];
         } else {
