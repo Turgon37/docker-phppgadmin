@@ -54,6 +54,20 @@ docker pull turgon37/phppgadmin
 
 ## Usage
 
+* With docker cli
+
 ```
 docker run -p 8000:80 -e "POSTGRES_HOST=127.0.0.1" -e "POSTGRES_PORT=5432" -e "POSTGRES_NAME=Intranet" turgon37/phppgadmin
+```
+
+* With docker-compose
+
+```yaml
+ phppgadmin:
+    image: turgon37/phppgadmin
+    environment:
+      - POSTGRES_HOSTS=postgresql01.example.net,postgresql02.example.net
+      - POSTGRES_NAMES=PostgreSQL 01,PostgreSQL 02
+    ports:
+      - "127.0.0.1:8003:80/tcp"
 ```
