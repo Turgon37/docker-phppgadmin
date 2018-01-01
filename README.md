@@ -1,5 +1,6 @@
 # Docker phpPgAdmin
 
+[![Docker Automated build](https://img.shields.io/badge/docker%20build-automated-blue.svg)](https://hub.docker.com/r/turgon37/phppgadmin/)
 [![](https://images.microbadger.com/badges/image/turgon37/phppgadmin.svg)](https://microbadger.com/images/turgon37/phppgadmin "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/turgon37/phppgadmin.svg)](https://microbadger.com/images/turgon37/phppgadmin "Get your own version badge on microbadger.com")
 
