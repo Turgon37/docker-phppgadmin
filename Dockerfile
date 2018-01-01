@@ -1,5 +1,6 @@
-FROM alpine:3.6
-MAINTAINER Pierre GINDRAUD <pgindraud@gmail.com>
+FROM alpine:3.7
+
+LABEL maintainer="Pierre GINDRAUD <pgindraud@gmail.com>"
 
 ENV PHPPGADMIN_VERSION=5.1 \
     POSTGRES_NAME=PostgreSQL \
@@ -28,7 +29,7 @@ RUN apk --no-cache add \
     php5-pgsql \
     postgresql \
     supervisor \
-    tar && \
+    tar
 
 # Install phppadmin sources
     mkdir -p /run/nginx && \
