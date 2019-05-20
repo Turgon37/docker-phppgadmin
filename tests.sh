@@ -59,7 +59,7 @@ docker run $docker_run_options --name "${image_name}" --publish 8000:80 "${image
 wait_for_string_in_container_logs "${image_name}" 'nginx entered RUNNING state'
 sleep 5
 # test
-if ! curl -v http://localhost:8000 2>&1 | grep --quiet 'install/install.php'; then
+if ! curl -v http://localhost:8000 2>&1 | grep --quiet 'browser.php'; then
   docker logs "${image_name}"
   false
 fi

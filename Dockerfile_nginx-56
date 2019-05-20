@@ -44,7 +44,6 @@ RUN set -ex; \
         $PHPIZE_DEPS \
         autoconf \
         coreutils \
-        icu-dev \
         postgresql-dev \
     ; \
     docker-php-source extract ; \
