@@ -1,0 +1,32 @@
+---
+language: bash
+
+# Tell Travis to start Docker when it brings up an environment.
+services:
+  - docker
+
+env:
+  global:
+    - DOCKER_REPO=turgon37/phppgadmin
+    - secure: ''
+    - secure: ''
+  matrix:
+    # Provide a list of GLPI version to build
+    - PHPPGADMIN_VERSION='' IMAGE_VARIANT=nginx-56
+
+script:
+  #
+  ## Build
+  #
+  - ./build.sh
+
+  #
+  ## Run tests
+  #
+  - ./tests.sh && touch _test_ok
+
+  #
+  ## Publish
+  #
+#  - '[ "$TRAVIS_PULL_REQUEST" == "false" ] || exit 0'
+#  - '[ "$TRAVIS_SECURE_ENV_VARS" == "true" -a -f _test_ok ] && ./publish.sh'
