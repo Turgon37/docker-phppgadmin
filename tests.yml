@@ -1,0 +1,12 @@
+schemaVersion: 2.0.0
+
+metadataTest:
+  exposedPorts: ["80"]
+
+commandTests:
+  - name: phpPgAdmin successfully installed
+    command: test
+    args:
+      - '-f'
+      - index.php
+    exitCode: 0

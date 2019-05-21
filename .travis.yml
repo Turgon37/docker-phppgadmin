@@ -1,0 +1,32 @@
+---
+language: bash
+
+# Tell Travis to start Docker when it brings up an environment.
+services:
+  - docker
+
+env:
+  global:
+    - DOCKER_REPO=turgon37/phppgadmin
+    - secure: 'XG6kIU1blTp/uKDA/MCocCyBiXM4JchJgjqGRp8Uz2MiYER9wAIDbPdwpIZV7XNil2JgzTdTPF5Io4PUTGlkEmdyycJLL0HvfQ3nlndMoVcTdY9DO6YbS36CdXE1Rq/BDk8eMoeq78ssk0AAq/S15S4D8wH9EVysWeTIlXKe5yjIeeOxcp4pw9ud0Mf3FAVF5ny3bGZqakS2kT0ccFG8iyYgzervlufg68dZegZr2206RY8CriryzKq/XkBwyW11FPqKr8U/bF1HwFRYv6iTduMQIZ5cbcphE7Hwo+aNMaqBGyWfxfK8VuN11Apb7qUszNMSPfsrxXcfa9UaEWal9Jmayf+apTibE1pdm0rz0nPoqAOcK/pXxRlUJ20UKWK3VTkXIeNdEtRP61I4wPShwC9I3D6stJxbL5y/nBjK8IdzS/qsbZ0TgVV6t3oa1uEfAHK7MCDlZE534pJr802TFA03iSUVhtqFZieqqUnE4HADK82csuxpC3lcaBe+YIOtxojEDZ/5HZM8Fjsi1ONyg8HxWvLO63n3c+uGgNWdNzfFlxNPeCGoeo7diLj3rxcJET/N4gwqOXFul0kFTut3E1jmlSvut5Hj3RHu3zHuAmqdak/ShLb/LW8H1ZntVJFKuGNCYcRJUQa7uPYzDnfzJHQQ9lbH7wTq37bTxpBFDe8='
+    - secure: 'YO3rgVqcRij3bJvlMPY29vo/DnAQ5hMyoe+n+oifaTyKuIHdOAC3opBijWMinyVfI/AlWq28oQOvSRPI/n3NKhnThDPzc9WcL8cOMFVpo2piyu/0rPwvaaWVW0Cgtlc/JxAWTDgXr4rbC6aNShYW56fNRa9bBAFKlCvUaNi6ZtjXXVQA0gdbvH1ayKWLntThXSKLzPTUZMpn4y4YEkl/jwGvCfn030H2hJY+I6q2iKgQckCm0NyeQqe6efMI3CI3rA/4oA/oGZcHe4eSibK2KMuzX2fbyGtCYVJVSpIqazQk0o22Msi6/axO95YOiCgxMGmaiQ+dkKAQCuvclfAzt5o75+8oEVAH9iVyzN8oo87sHflpU4ly5xLa2IWtfaK7l5ZNZ5nbgS04SleP5f70NGv5leRC2dixnD3/7gh4y+e6OTx0CVLe/G/HofiKHffOrJE6OVtXue7l3BZ/sPZNvQY+hkF++HCdj9yIJmddJuSDIDOH3izVQcPzpHOfDvNZ3i4jh6UaEh5Uu59k/V16LE2T/rTIO40VFQp2pQkvIcq+spI0Yrqab4KWCMTK/NRgIHYb/cABlmzn+Ly8ub2Bcq7fli12IAcLqv8GBE5WZK/h+D/YWD34J1ROUxk/1uJZVj0N1Xc1195z15HgLa7pWldctprrIqJMlyBCngcsL80='
+  matrix:
+    # Provide a list of GLPI version to build
+    - PHPPGADMIN_VERSION='' IMAGE_VARIANT=nginx-56
+
+script:
+  #
+  ## Build
+  #
+  - ./build.sh
+
+  #
+  ## Run tests
+  #
+  - ./tests.sh && touch _test_ok
+
+  #
+  ## Publish
+  #
+  - '[ "$TRAVIS_PULL_REQUEST" == "false" ] || exit 0'
+  - '[ "$TRAVIS_SECURE_ENV_VARS" == "true" -a -f _test_ok ] && ./publish.sh'
