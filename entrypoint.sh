@@ -16,7 +16,7 @@ function setTimezone() {
 }
 
 # run sartup action only if main command is given to entrypoint
-if expr match $1 '.*supervisord'; then
+if expr match $1 '.*supervisord' >/dev/null; then
   setTimezone
 fi
 

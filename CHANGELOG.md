@@ -2,6 +2,12 @@
 
 Items starting with `DEPRECATE` are important deprecation notices.
 
+## 2.0.1 (2019-05-21)
+
+### Image
+
++ Remove unwanted output from "match" command in entrypoint
+
 ## 2.0.0 (2019-05-20)
 
 ### Image
